@@ -5,12 +5,20 @@ export default class EmployeeArray {
         this.employees = employees;
     }
 
+    setEmployees(employees){
+        this.employees = employees;
+    }
+
     push(employee){
         this.employees.push(employee);
     }
 
     pop(employee){
         return this.employees.pop(employee);
+    }
+
+    map(callback){
+        return this.employees.map(callback);
     }
 
     // FIXME: look at more than just the first letter

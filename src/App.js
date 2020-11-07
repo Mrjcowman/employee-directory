@@ -10,14 +10,14 @@ function App() {
   const [myEmployees, setMyEmployees] = useState(new EmployeeArray());
 
   useEffect(() => {
-    API.getNumOfUsers(20).then(data=>{
-      myEmployees.push(data.data.results);
-      console.log(myEmployees.employees);
+    API.getNumOfUsers(20).then(res=>{
+      setMyEmployees(new EmployeeArray(...res.data.results));
+      // myEmployees.employees = res.data.results;
     }).catch(err=>{
       throw err;
     })
   
-  })
+  }, [])
 
   function searchEmployees(event) {
     return myEmployees.filterByName(event.query.value);
@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <SearchForm onSubmit={searchEmployees} />
-      <EmployeeList employees={myEmployees}/>
+      <EmployeeList employeeArray={myEmployees}/>
     </div>
   );
 }

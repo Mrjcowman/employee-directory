@@ -1,9 +1,10 @@
 import React from 'react';
 
-function EmployeeCard() {
+function EmployeeCard(props) {
+    console.log(props);
     return (
         <div>
-            <p>I'm an employee card!</p>
+            <p>Name: {props.data.name.first} {props.data.name.last}</p>
         </div>
     )
 }
