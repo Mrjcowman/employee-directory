@@ -12,7 +12,6 @@ function App() {
   useEffect(() => {
     API.getNumOfUsers(20).then(res=>{
       setMyEmployees(new EmployeeArray(...res.data.results));
-      // myEmployees.employees = res.data.results;
     }).catch(err=>{
       throw err;
     })

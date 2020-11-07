@@ -7,10 +7,6 @@ function EmployeeList(props) {
         return <EmployeeCard data={employee} />
     });
 
-    console.log(props.employeeArray);
-    console.log(employees);
-    console.log(employeesMap);
-
     return (
         <div>
             <h2>I'm a list of employees!</h2>
