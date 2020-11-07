@@ -6,5 +6,6 @@ export default class Employee {
         this.phone   = phone;
         this.id      = id;
         this.picture = picture;
+        this.fullName = name.first+" "+name.last;
     }
 }

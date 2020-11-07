@@ -1,8 +1,19 @@
 import './Employee';
+import Employee from './Employee';
 
 export default class EmployeeArray {
     constructor(...employees){
-        this.employees = employees;
+        this.employees = [];
+        employees.forEach(employee=>{
+            this.employees.push(new Employee(
+                employee.name,
+                employee.email,
+                employee.login,
+                employee.phone,
+                employee.id,
+                employee.picture
+            ));
+        })
     }
 
     setEmployees(employees){
@@ -37,7 +48,7 @@ export default class EmployeeArray {
     // TODO: convert to lowercase to ignore caps
     filterByName(query){
         return this.employees.filter(employee=>{
-            return employee.name.includes(query);
+            return employee.fullName.toLowerCase().includes(query.toLowerCase());
         })
     }
 }

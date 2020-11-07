@@ -1,10 +1,11 @@
 import React from 'react'
 
-function SearchForm() {
+function SearchForm(props) {
     return (
-        <div>
+        <form>
             <h2>I'm a search form!</h2>
-        </div>
+            <input type="text" autocomplete="off" placeholder="Search by Name..." name="query" onChange={props.onChange}></input>
+        </form>
     )
 }
 

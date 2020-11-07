@@ -24,12 +24,13 @@ function App() {
   }, [myEmployees])
 
   function searchEmployees(event) {
-    return myEmployees.filterByName(event.query.value);
+    event.preventDefault();
+    setMyEmployeeList(myEmployees.filterByName(event.target.value));
   }
 
   return (
     <div className="App">
-      <SearchForm onSubmit={searchEmployees} />
+      <SearchForm onChange={searchEmployees} />
       <EmployeeList employeeList={myEmployeeList}/>
     </div>
   );
