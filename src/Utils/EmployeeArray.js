@@ -13,17 +13,20 @@ export default class EmployeeArray {
         return this.employees.pop(employee);
     }
 
+    // FIXME: look at more than just the first letter
+    // FIXME: sort by last name
     sortByName(asc=true){
         if(asc)
             return this.employees.sort((empA,empB)=>{
-                return empA.name[0] - empB.name[0];
+                return empA.name.lastName[0] - empB.name.lastName[0];
             });
         else
             return this.employees.sort((empA,empB)=>{
-                return empB.name[0] - empA.name[0];
+                return empB.name.lastName[0] - empA.name.lastName[0];
             });
     }
 
+    // TODO: convert to lowercase to ignore caps
     filterByName(query){
         return this.employees.filter(employee=>{
             return employee.name.includes(query);
