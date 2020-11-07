@@ -9,7 +9,9 @@ function EmployeeList(props) {
     return (
         <div>
             <h2>I'm a list of employees!</h2>
-            {employeesMap}
+            <ul>
+                {employeesMap}
+            </ul>
         </div>
     )
 }
