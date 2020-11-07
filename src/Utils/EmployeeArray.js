@@ -26,11 +26,11 @@ export default class EmployeeArray {
     sortByName(asc=true){
         if(asc)
             return this.employees.sort((empA,empB)=>{
-                return empA.name.lastName[0] - empB.name.lastName[0];
+                return empA.name.last < empB.name.last? -1: 1;
             });
         else
             return this.employees.sort((empA,empB)=>{
-                return empB.name.lastName[0] - empA.name.lastName[0];
+                return empB.name.last < empA.name.last? -1: 1;
             });
     }
 

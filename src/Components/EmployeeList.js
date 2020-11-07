@@ -2,8 +2,7 @@ import React from 'react'
 import EmployeeCard from './EmployeeCard'
 
 function EmployeeList(props) {
-    let employees = props.employeeArray.employees;
-    let employeesMap = employees.map(employee=>{
+    let employeesMap = props.employeeList.map(employee=>{
         return <EmployeeCard data={employee} />
     });
 

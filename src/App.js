@@ -8,6 +8,7 @@ import API from './Utils/API';
 function App() {
 
   const [myEmployees, setMyEmployees] = useState(new EmployeeArray());
+  const [myEmployeeList, setMyEmployeeList] = useState(myEmployees.sortByName());
 
   useEffect(() => {
     API.getNumOfUsers(20).then(res=>{
@@ -18,6 +19,10 @@ function App() {
   
   }, [])
 
+  useEffect(() => {
+    setMyEmployeeList(myEmployees.sortByName());
+  }, [myEmployees])
+
   function searchEmployees(event) {
     return myEmployees.filterByName(event.query.value);
   }
@@ -25,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <SearchForm onSubmit={searchEmployees} />
-      <EmployeeList employeeArray={myEmployees}/>
+      <EmployeeList employeeList={myEmployeeList}/>
     </div>
   );
 }
